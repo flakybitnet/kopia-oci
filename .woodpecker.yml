@@ -1,0 +1,63 @@
+# Environments
+# SKIP_IMAGE=true|false - skip building image
+# SKIP_PUBLISH_QUAY=true|false - skip publishing in Quay
+# SKIP_PUBLISH_GHCR=true|false - skip publishing in GitHub
+# SKIP_PUBLISH_ECR=true|false - skip publishing in AWS Public ECR
+
+variables:
+  - &kaniko_image "gcr.io/kaniko-project/executor:v1.22.0-debug"
+  - &skopeo_image "quay.io/containers/skopeo:v1.15.0"
+  - &awscli_image "public.ecr.aws/aws-cli/aws-cli:2.15.33"
+
+steps:
+  set-env:
+    image: debian:bookworm-slim
+    commands:
+      - .cicd/set-env.sh
+  image:
+    when:
+      evaluate: 'SKIP_IMAGE != "true"'
+    image: *kaniko_image
+    commands:
+      - .cicd/set-docker-auth.sh
+      - .cicd/build.sh
+    secrets:
+      - source: fb_harbor_usr
+        target: docker_usr
+      - source: fb_harbor_pwd
+        target: docker_pwd
+  publish-quay:
+    when:
+      evaluate: 'SKIP_PUBLISH_QUAY != "true"'
+    image: *skopeo_image
+    commands:
+      - .cicd/publish-quay.sh
+    secrets:
+      - source: fb_quay_creds
+        target: quay_creds
+  publish-ghcr:
+    when:
+      evaluate: 'SKIP_PUBLISH_GHCR != "true"'
+    image: *skopeo_image
+    commands:
+      - .cicd/publish-ghcr.sh
+    secrets:
+      - source: fb_ghcr_creds
+        target: ghcr_creds
+  get-aws-auth:
+    when:
+      evaluate: 'SKIP_PUBLISH_ECR != "true"'
+    image: *awscli_image
+    commands:
+      - .cicd/get-aws-ecr-pwd.sh
+    secrets:
+      - source: fb_ecr_key_id
+        target: aws_access_key_id
+      - source: fb_ecr_key
+        target: aws_secret_access_key
+  publish-ecr:
+    when:
+      evaluate: 'SKIP_PUBLISH_ECR != "true"'
+    image: *skopeo_image
+    commands:
+      - .cicd/publish-ecr.sh
