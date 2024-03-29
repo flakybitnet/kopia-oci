@@ -6,7 +6,7 @@
 
 variables:
   - &kaniko_image "gcr.io/kaniko-project/executor:v1.22.0-debug"
-  - &skopeo_image "quay.io/containers/skopeo:v1.15.0"
+  - &skopeo_image "quay.io/containers/skopeo:v1.14.2"
   - &awscli_image "public.ecr.aws/aws-cli/aws-cli:2.15.33"
 
 steps:
