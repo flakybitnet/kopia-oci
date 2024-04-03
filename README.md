@@ -7,7 +7,8 @@ This is a superset of [official images](https://github.com/kopia/kopia/tree/mast
 ## Goals
 
 1. Provide rootless images.
-2. Distribute via multiple registries ([Issue 2834: Push images to a different registry](https://github.com/kopia/kopia/issues/2834)).
+2. Bundle OpenSSH client.
+3. Distribute via multiple registries ([Issue 2834: Push images to a different registry](https://github.com/kopia/kopia/issues/2834)).
 
 ## Images
 
