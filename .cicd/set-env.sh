@@ -9,7 +9,7 @@ printf 'APP_NAME=%s\n' "$APP_NAME" >> .cicd/env
 APP_COMPONENT='server'
 printf 'APP_COMPONENT=%s\n' "$APP_COMPONENT" >> .cicd/env
 
-APP_VERSION='0.16.1'
+# from WP config
 printf 'APP_VERSION=%s\n' "$APP_VERSION" >> .cicd/env
 
 printf 'HARBOR_REGISTRY=%s\n' 'harbor.flakybit.net' >> .cicd/env
