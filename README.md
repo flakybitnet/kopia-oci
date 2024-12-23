@@ -18,6 +18,15 @@ Images are built on top of the official ones and published in registries:
 - [AWS](https://gallery.ecr.aws/flakybitnet/kopia/server) `public.ecr.aws/flakybitnet/kopia/server`,
 - Harbor `harbor.flakybit.net/kopia/server`.
 
+Images are built on top of the official ones and published in [Quay](https://quay.io/repository/flakybitnet/kopia-server),
+[GHCR](https://github.com/flakybitnet/kopia-docker/pkgs/container/kopia-server), [AWS](https://gallery.ecr.aws/flakybitnet/kopia/server) and Harbor registries.
+
+There are two profiles:
+* `std` — standard Kopia server;
+* `ssh` — Kopia with SSH client.
+
+So, Keycloak version should be prefixed by profile name. For example, `ha-pg-24.0.0` or `std-pg-24.0.0`.
+
 ## Usage
 
 Usage is not different from [the official images](https://kopia.io/docs/installation/#docker-images). So, you can run the server by the command:

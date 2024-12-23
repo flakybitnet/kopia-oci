@@ -1,12 +1,11 @@
-ARG VERSION=latest
-FROM kopia/kopia:${VERSION}
+ARG KOPIA_VERSION
+FROM kopia/kopia:${KOPIA_VERSION}
 
 ENV UID=1001 \
     GID=1001
 
 RUN apt-get update && \
     apt-get upgrade -y --with-new-pkgs && \
-    apt-get install -y --no-install-recommends openssh-client && \
     apt-get clean autoclean -y && \
     apt-get autoremove -y && \
     rm -rf /var/lib/apt/* /var/lib/cache/* /var/lib/log/* \
