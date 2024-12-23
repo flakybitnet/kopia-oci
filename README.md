@@ -12,12 +12,6 @@ This is a superset of [official images](https://github.com/kopia/kopia/tree/mast
 
 ## Images
 
-Images are built on top of the official ones and published in registries:
-- [Quay](https://quay.io/repository/flakybitnet/kopia-server) `quay.io/flakybitnet/kopia-server`, 
-- [GHCR](https://github.com/flakybitnet/kopia-docker/pkgs/container/kopia-server) `ghcr.io/flakybitnet/kopia-server`,
-- [AWS](https://gallery.ecr.aws/flakybitnet/kopia/server) `public.ecr.aws/flakybitnet/kopia/server`,
-- Harbor `harbor.flakybit.net/kopia/server`.
-
 Images are built on top of the official ones and published in [Quay](https://quay.io/repository/flakybitnet/kopia-server),
 [GHCR](https://github.com/flakybitnet/kopia-docker/pkgs/container/kopia-server), [AWS](https://gallery.ecr.aws/flakybitnet/kopia/server) and Harbor registries.
 
@@ -25,7 +19,7 @@ There are two profiles:
 * `std` — standard Kopia server;
 * `ssh` — Kopia with SSH client.
 
-So, Keycloak version should be prefixed by profile name. For example, `ha-pg-24.0.0` or `std-pg-24.0.0`.
+So, Kopia version should be like `<kopia-version>-<fb-revision>-<profile>`. For example, `0.18.2-fb1-std` or `0.18.2-fb1-ssh`.
 
 ## Usage
 
