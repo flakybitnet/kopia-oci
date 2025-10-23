@@ -1,6 +1,6 @@
-# kopia-docker
+# kopia-oci
 
-Docker image of Kopia, a cross-platform backup tool.
+Container images of Kopia, a cross-platform backup tool.
 
 This is a superset of [official images](https://github.com/kopia/kopia/tree/master/tools/docker).
 
@@ -12,8 +12,7 @@ This is a superset of [official images](https://github.com/kopia/kopia/tree/mast
 
 ## Images
 
-Images are built on top of the official ones and published in [Quay](https://quay.io/repository/flakybitnet/kopia-server),
-[GHCR](https://github.com/flakybitnet/kopia-docker/pkgs/container/kopia-server), [AWS](https://gallery.ecr.aws/flakybitnet/kopia/server) and Harbor registries.
+Images are built on top of the official ones and published in [GHCR](https://github.com/flakybitnet/kopia-oci/pkgs/container/kopia-server) and [GitLab](https://gitlab.flakybit.net/fb/kopia-oci/container_registry).
 
 There are two profiles:
 * `std` — standard Kopia server;
@@ -37,4 +36,4 @@ docker run -e KOPIA_PASSWORD \
 
 ## Source
 
-Source code are available at [Gitea](https://gitea.flakybit.net/flakybit/kopia-docker) and mirrored to [GitHub](https://github.com/flakybitnet/kopia-docker).
+Source code are available at [GitLab](https://gitlab.flakybit.net/fb/kopia-oci) and mirrored to [GitHub](https://github.com/flakybitnet/kopia-oci).
